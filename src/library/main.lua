@@ -32,7 +32,7 @@ game["PlayerGUI"] = game["PlayerGUI"]
 
 Instance = {
     ---Create new Instance
-    ---@param name ClassNames
+    ---@param name string
     ---@return Instance
     ---@meta
     New = function(name) end
