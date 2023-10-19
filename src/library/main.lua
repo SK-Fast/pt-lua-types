@@ -128,4 +128,4 @@ function wait(seconds) end
 script = script
 
 ---@class BaseScript : Instance
----@field Call fun(function: string,args: (table | nil)): nil
+---@field Call fun(function: string,args: (any | nil)): nil
