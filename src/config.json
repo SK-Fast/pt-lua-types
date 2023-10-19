@@ -1,0 +1,10 @@
+{
+    "name": "Polytoria Definition",
+    "words": [ "game", "[\"Environment\"]" ],
+    "files": ["scripteditor", "pt.lua"],
+    "settings": {
+        "Lua.diagnostics.globals" : [
+            "Http"
+        ]
+    }
+}

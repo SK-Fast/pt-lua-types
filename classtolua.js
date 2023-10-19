@@ -110,4 +110,4 @@ for (const [className, c] of Object.entries(data.dataTypes)) {
 
 resultDeclear += `\n${instanceNameAlias}`
 
-fs.writeFileSync("./library/pt_declearations.lua", resultDeclear)
+fs.writeFileSync("./src/library/pt_declearations.lua", resultDeclear)

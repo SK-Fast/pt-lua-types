@@ -1,3 +1,4 @@
+--##
 ---@type Part
 local part = Environment["Part"]
 
@@ -15,7 +16,6 @@ game["Players"].PlayerAdded:Connect(function (plr)
     end)
 end)
 
-Tween.TweenNumber(0,5,5, function()
-end, TweenType.easeOutQuart, function()
-
+Environment.ChildAdded:Connect(function()
+    Camera.ClipThroughWalls = false
 end)

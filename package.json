@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "@fluffy-spoon/csharp-parser": "^1.143.0"
+    "@fluffy-spoon/csharp-parser": "^1.143.0",
+    "axios": "^1.5.1",
+    "cli-spinners": "^2.9.1",
+    "download-file": "^0.1.5",
+    "ora": "^7.0.1"
   }
 }
