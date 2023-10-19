@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-doc-field
 require "extar_types.lua"
 
 ---@class Backpack : Instance

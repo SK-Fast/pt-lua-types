@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-doc-field
 require "pt_declearations"
 
 ---@type Game
@@ -125,3 +126,6 @@ function wait(seconds) end
 
 ---@type BaseScript
 script = script
+
+---@class BaseScript : Instance
+---@field Call fun(function: string,args: (table | nil)): nil

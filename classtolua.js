@@ -1,6 +1,6 @@
 const fs = require('fs')
 const data = JSON.parse(fs.readFileSync("out.json", 'utf-8'))
-let resultDeclear = "require \"extar_types.lua\"\n"
+let resultDeclear = "---@diagnostic disable: duplicate-doc-field\nrequire \"extar_types.lua\"\n"
 let instanceNameAlias = "---@alias ClassNames\n"
 
 function addLine(txt) {
