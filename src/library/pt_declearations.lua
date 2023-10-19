@@ -571,7 +571,6 @@ TweenType = {
 ---@class Event
 ---@field Connect fun(func: any): nil
 ---@field Disconnect fun(func: any): nil
----@field Invoke fun(par: table): nil
 
 ---@class JSON
 ---@field Parse fun(aJSON: string): JSONNode
@@ -607,18 +606,10 @@ TweenType = {
 ---@field New fun(x: number,y: number,z: number,w: number): self
 
 ---@class ChatService
----@field instance ChatService
 ---@field BroadcastMessage fun(message: string): nil
 ---@field UnicastMessage fun(message: string,player: Player): nil
----@field SendChat fun(message: string): nil
----@field Invoke fun(methodName: string,time: number): nil
----@field InvokeRepeating fun(methodName: string,time: number,repeatRate: number): nil
----@field Weaved fun(): nil
 
 ---@class HttpService
----@field instance HttpService
----@field Invoke fun(methodName: string,delay: number): nil
----@field InvokeRepeating fun(methodName: string,delay: number,repeatRate: number): nil
 ---@field Get fun(url: string,callback: any,headers: table): nil
 ---@field Post fun(url: string,postData: string,callback: any,headers: table): nil
 ---@field Put fun(url: string,bodyData: string,callback: any,headers: table): nil
@@ -642,14 +633,6 @@ TweenType = {
 ---@field ViewportPointToRay fun(pos: Vector3,ignoreList: table): RayResult
 
 ---@class NetMessage
----@field strings table
----@field ints table
----@field numbers table
----@field bools table
----@field vec2s table
----@field vec3s table
----@field colors table
----@field instances table
 ---@field AddString fun(key: string,value: string): nil
 ---@field AddInt fun(key: string,value: integer): nil
 ---@field AddBool fun(key: string,value: boolean): nil

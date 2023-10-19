@@ -35,8 +35,9 @@ for (const fn of fs.readdirSync(dirRoot).concat(fs.readdirSync(path.resolve(dirR
                 //console.log(util.inspect(cl.properties, { depth: null }))
 
                 for (const prop of cl.properties.concat(cl.fields)) {
-
-                    if (prop.isPublic) {
+                    const moonFind = prop.attributes.find((v) => v.name == "MoonSharpHidden")
+                    
+                    if (prop.isPublic && moonFind == undefined && prop.name != "instance") {
                         const data = {
                             name: prop.name,
                             type: prop.type.name,
@@ -54,7 +55,9 @@ for (const fn of fs.readdirSync(dirRoot).concat(fs.readdirSync(path.resolve(dirR
                 }
 
                 for (const method of cl.methods) {
-                    if (!method.isPublic) {
+                    const moonFind = method.attributes.find((v) => v.name == "MoonSharpHidden")
+
+                    if (!method.isPublic || moonFind || method.name == "Weaved") {
                         continue
                     }
 
