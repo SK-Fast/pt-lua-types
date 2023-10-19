@@ -32,14 +32,23 @@ game["PlayerGUI"] = game["PlayerGUI"]
 
 Instance = {
     ---Create new Instance
-    ---@param name string
-    ---@return Instance
+    ---@param name ClassNames
+    ---@return (Instance | any)
     ---@meta
     New = function(name) end
 }
 
----@type NetMessage
-NetMessage = NetMessage
+NetMessage = {
+    ---Create new NetMessage
+    ---@return NetMessage
+    New = function() end
+}
+
+RayResult = {
+    ---Create new NetMessage
+    ---@return NetMessage
+    New = function() end
+}
 
 ---@class RayResult
 ---@field Origin Vector3
@@ -81,16 +90,24 @@ Tween = Tween
 
 ---@class json
 json = {
+    ---Returns true if the value specified is a null read from a json
     ---@param jsonString string
     ---@return boolean
+    ---@see Docs https://docs.polytoria.com/static-classes/json/Functions/isNull/
     isNull = function(jsonString) end,
+    ---Returns a special value which is a representation of a null in a json
     ---@return string
+    ---@see Docs https://docs.polytoria.com/static-classes/json/Functions/null/
     null = function() end,
+    ---Returns a table with the contents of the specified JSON string
     ---@param jsonString string
     ---@return table
+    ---@see Docs https://docs.polytoria.com/static-classes/json/Functions/parse/
     parse = function(jsonString) end,
+    ---Returns a json string with the contents of the specified table.
     ---@param jsonTable table
     ---@return string
+    ---@see Docs https://docs.polytoria.com/static-classes/json/Functions/serialize/
     serialize = function(jsonTable) end,
 }
 

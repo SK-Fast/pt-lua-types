@@ -67,7 +67,7 @@ function runField(props) {
 }
 
 for (const [className, c] of Object.entries(data.classes)) {
-    instanceNameAlias += `---| ${className}\n`
+    instanceNameAlias += `---| '"${className}"'\n`
     addLine(`\n---@class ${className}${c.inherits ? ` : ${c.inherits}` : ""}`)
 
     runField(c.properties)
