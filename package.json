@@ -1,11 +1,13 @@
 {
   "dependencies": {
-    "@fluffy-spoon/csharp-parser": "^1.143.0",
-    "axios": "^1.5.1",
-    "cli-spinners": "^2.9.1",
-    "download-file": "^0.1.5",
-    "node-7z": "^3.0.0",
-    "nodejs-file-downloader": "^4.12.1",
-    "ora": "^7.0.1"
-  }
+    "@fluffy-spoon/csharp-parser": "^1.143.0"
+  },
+  "name": "pt-lua-types",
+  "version": "1.0.0",
+  "main": "classparse.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
