@@ -79,8 +79,8 @@ require "extar_types.lua"
 ---@field FogEndDistance number
 ---@field FogColor Color
 ---@field CreateExplosion fun(position: Vector3,radius: number,force: number,affectKinematic: boolean,func: any): nil
----@field Raycast fun(origin: Vector3,direction: Vector3,maxDistance: number,ignoreList: table): RayResult
----@field RaycastAll fun(origin: Vector3,direction: Vector3,maxDistance: number,ignoreList: table): table
+---@field Raycast fun(origin: Vector3,direction: Vector3,maxDistance: number,ignoreList: Instance[]): RayResult
+---@field RaycastAll fun(origin: Vector3,direction: Vector3,maxDistance: number,ignoreList: Instance[]): RayResult[]
 
 ---@class Game : Instance
 ---@field GameID integer
@@ -115,18 +115,18 @@ require "extar_types.lua"
 ---@field Clicked LuaEvent
 ---@field MouseEnter LuaEvent
 ---@field MouseExit LuaEvent
----@field GetParent fun(): nil
+---@field GetParent fun(): Instance
 ---@field SetParent fun(parent: Instance): nil
 ---@field FindChild fun(name: string): Instance
----@field GetChildren fun(): nil
----@field GetChildrenOfClass fun(className: string): table
+---@field GetChildren fun(): Instance[]
+---@field GetChildrenOfClass fun(className: string): Instance[]
 ---@field FindChildByClass fun(className: string): Instance
 ---@field IsA fun(className: string): boolean
 ---@field IsDescendantOf fun(parent: Instance): boolean
 ---@field Destroy fun(time: number): nil
 ---@field Delete fun(time: number): nil
 ---@field New fun(className: string,parent: Instance): self
----@field Clone fun(): nil
+---@field Clone fun(): Instance
 
 ---@class InstanceValue : Instance
 ---@field Value Instance
@@ -247,7 +247,7 @@ require "extar_types.lua"
 ---@field LocalPlayer Player
 ---@field PlayerAdded LuaEvent
 ---@field PlayerRemoved LuaEvent
----@field GetPlayers fun(): nil
+---@field GetPlayers fun(): Player[]
 ---@field GetPlayer fun(username: string): Player
 ---@field GetPlayerByID fun(id: integer): Player
 
@@ -565,7 +565,7 @@ TweenType = {
 
 ---@class Color
 ---@field New fun(r: number,g: number,b: number,a: number): self
----@field Random fun(): nil
+---@field Random fun(): Color
 ---@field FromHex fun(hex: string): Color
 ---@field Lerp fun(a: Color,b: Color,t: number): Color
 
@@ -575,7 +575,7 @@ TweenType = {
 
 ---@class JSON
 ---@field Parse fun(aJSON: string): JSONNode
----@field GetChildrenAsArray fun(json: JSONNode): table
+---@field GetChildrenAsArray fun(json: JSONNode): JSONNode[]
 
 ---@class Vector2
 ---@field New fun(x: number,y: number): self
@@ -622,16 +622,16 @@ TweenType = {
 ---@field CursorVisible boolean
 ---@field KeyDown LuaEvent
 ---@field KeyUp LuaEvent
----@field GetMouseWorldPosition fun(): nil
----@field GetMouseWorldPoint fun(): nil
+---@field GetMouseWorldPosition fun(): Vector3
+---@field GetMouseWorldPoint fun(): Vector3
 ---@field ScreenToWorldPoint fun(pos: Vector3): Vector3
 ---@field ScreenToViewportPoint fun(pos: Vector3): Vector3
 ---@field WorldToScreenPoint fun(pos: Vector3): Vector3
 ---@field WorldToViewportPoint fun(pos: Vector3): Vector3
 ---@field ViewportToWorldPoint fun(pos: Vector3): Vector3
 ---@field ViewportToScreenPoint fun(pos: Vector3): Vector3
----@field ScreenPointToRay fun(pos: Vector3,ignoreList: table): RayResult
----@field ViewportPointToRay fun(pos: Vector3,ignoreList: table): RayResult
+---@field ScreenPointToRay fun(pos: Vector3,ignoreList: Instance[]): RayResult
+---@field ViewportPointToRay fun(pos: Vector3,ignoreList: Instance[]): RayResult
 
 ---@class NetMessage
 ---@field AddString fun(key: string,value: string): nil

@@ -38,13 +38,17 @@ for (const fn of fs.readdirSync(dirRoot).concat(fs.readdirSync(path.resolve(dirR
                     const moonFind = prop.attributes.find((v) => v.name == "MoonSharpHidden")
                     
                     if (prop.isPublic && moonFind == undefined && prop.name != "instance") {
-                        const data = {
-                            name: prop.name,
-                            type: prop.type.name,
-                            nullable: prop.type.isNullable,
+                        let typeName = prop.type.name
+
+                        if (typeName == "List<>") {
+                            typeName = prop.type.genericParameters[0].name + "[]"
                         }
 
-                        console.log(prop.name)
+                        const data = {
+                            name: prop.name,
+                            type: typeName,
+                            nullable: prop.type.isNullable,
+                        }
 
                         if (prop.type.name == "LuaEvent") {
                             events[prop.name] = data
@@ -66,12 +70,25 @@ for (const fn of fs.readdirSync(dirRoot).concat(fs.readdirSync(path.resolve(dirR
                     }
 
                     for (const prop of method.parameters) {
+                        let typeName = prop.type.name
+
+                        if (typeName == "List<>") {
+                            typeName = prop.type.genericParameters[0].name + "[]"
+                        }
+
                         methods[method.name].args[prop.name] = {
                             name: prop.name,
-                            type: prop.type.name,
+                            type: typeName,
                             nullable: prop.type.isNullable,
                         }
-                        methods[method.name].returnType = method.returnType?.name
+                    }
+
+                    if (method.returnType) {
+                        if (method.returnType.name == "Array<>") {
+                            methods[method.name].returnType = method.returnType.genericParameters[0].name + "[]"
+                        } else {
+                            methods[method.name].returnType = method.returnType?.name
+                        }
                     }
                 }
 
