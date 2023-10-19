@@ -46,8 +46,8 @@ NetMessage = {
 }
 
 RayResult = {
-    ---Create new NetMessage
-    ---@return NetMessage
+    ---Create new RayResult
+    ---@return RayResult
     New = function() end
 }
 
